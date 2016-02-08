@@ -1,11 +1,6 @@
 ﻿using Orth.Core.Utils;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
-using Xunit.Extensions;
 
 namespace orth.tests
 {
@@ -23,10 +18,17 @@ namespace orth.tests
             Assert.False(Utilities.ParseTrueFalse(data));
         }
 
-        [Fact]
-        public void TestUnknown()
-        {
-            Assert.True(true);
+        [Theory]
+        [InlineData("true")]
+        [InlineData("false")]
+        public void TestUnknownRandomStringsTrueRetval(bool expectedRetval)
+        {            
+            for(int i =0; i < 1000; i++)
+            {
+                var randomString = Utilities.RandomString(10);
+                var retval = Utilities.ParseTrueFalse(randomString, expectedRetval);
+                Assert.True(retval == expectedRetval);
+            }            
         }
 
 
