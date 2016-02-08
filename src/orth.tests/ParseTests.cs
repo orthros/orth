@@ -21,7 +21,7 @@ namespace orth.tests
         [Theory]
         [InlineData("true")]
         [InlineData("false")]
-        public void TestUnknownRandomStringsTrueRetval(bool expectedRetval)
+        public void TestUnknownRandomStringsRetval(bool expectedRetval)
         {            
             for(int i =0; i < 1000; i++)
             {
