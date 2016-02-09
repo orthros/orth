@@ -1,0 +1,14 @@
+﻿no
+n
+false
+f
+off
+0
+NO
+N
+FALSE
+F
+OFF
+No
+Off
+False

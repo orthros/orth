@@ -1,5 +1,7 @@
 ﻿using Orth.Core.Utils;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using Xunit;
 
 namespace orth.tests
@@ -36,38 +38,13 @@ namespace orth.tests
         {
             get
             {
-                return new[]
+                using (var yesD = new StreamReader(File.OpenRead(Path.Combine(Environment.CurrentDirectory, "Data", "YesData.txt"))))
                 {
-                    new object[] {"yes"},
-                    new object[] {"Yes"},
-                    new object[] {"YEs"},
-                    new object[] {"YES"},
-                    new object[] {"yES"},
-                    new object[] {"yeS"},
-                    new object[] {"yEs"},
-                    new object[] {"YeS"},
-                    new object[] {"y"  },
-                    new object[] {"Y"  },
-                    new object[] {"true"},
-                    new object[] {"True"},
-                    new object[] {"TRue"},
-                    new object[] {"TRUe"},
-                    new object[] {"TRUE"},
-                    new object[] {"tRUE"},
-                    new object[] {"trUE"},
-                    new object[] {"truE"},
-                    new object[] {"TruE"},
-                    new object[] {"tRUe"},
-                    new object[] {"TrUe"},
-                    new object[] {"tRuE"},
-                    new object[] {"t"  },
-                    new object[] {"T"  },
-                    new object[] {"on" },
-                    new object[] {"On" },
-                    new object[] {"ON" },
-                    new object[] {"oN" },
-                    new object[] { "1" }
-                };
+                    while (!yesD.EndOfStream)
+                    {
+                        yield return new object[] { yesD.ReadLine() };
+                    }
+                }                
             }
         }
 
@@ -75,23 +52,13 @@ namespace orth.tests
         {
             get
             {
-                return new[]
+                using (var noD = new StreamReader(File.OpenRead(Path.Combine(Environment.CurrentDirectory, "Data", "NoData.txt"))))
                 {
-                    new object[] {"no" },
-                    new object[] {"n" },
-                    new object[] {"false" },
-                    new object[] {"f" },
-                    new object[] {"off" },
-                    new object[] {"0" },
-                    new object[] {"NO" },
-                    new object[] {"N" },
-                    new object[] {"FALSE" },
-                    new object[] {"F" },
-                    new object[] {"OFF" },
-                    new object[] {"No" },
-                    new object[] {"Off" },
-                    new object[] {"False" },
-                };
+                    while (!noD.EndOfStream)
+                    {
+                        yield return new object[] { noD.ReadLine() };
+                    }
+                }
             }
         }
 
