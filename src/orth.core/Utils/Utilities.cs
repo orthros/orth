@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace Orth.Core.Utils
 {
     public static class Utilities
     {
+        private static ILog Logger = LogManager.GetLogger(typeof(Utilities));
+
         private static Random random = new Random((int)DateTime.Now.Ticks);
         
         /// <summary>

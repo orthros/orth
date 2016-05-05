@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("orth.core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A core set of utilities used in the set of orthros repositories")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("orthros")]
 [assembly: AssemblyProduct("orth.core")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
